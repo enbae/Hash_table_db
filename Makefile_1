@@ -1,0 +1,19 @@
+CC = clang
+CFLAGS = -Wall -Wpedantic -Werror -Wextra
+
+all: businessdb
+
+businessdb: customer_main.o data_customer.o
+	$(CC) $(CFLAGS) customer_main.o data_customer.o -o businessdb 
+
+customer_main.o: customer_main.c data_customer.h
+	$(CC) $(CFLAGS) -c customer_main.c
+
+data_customer.o: data_customer.c data_customer.h
+	$(CC) $(CFLAGS) -c data_customer.c
+
+clean:
+	rm -f *.o businessdb
+
+format:
+	clang-format -i -style=file *.[ch]
