@@ -79,3 +79,24 @@ Example:
 
 sammy@ucsc.edu	Sammy The Slug	27	bananas
 bimmy@ucsc.edu	bimmy	4	vegan jerky
+
+
+## ASCII Design
+ ┌──────────────────────────────────────────────────────────┐
+ │                        HashTable                          │
+ │----------------------------------------------------------│
+ │ size = 100                                                │
+ │ buckets = Customer*[] -----------------------------------│
+ └───────────────┬───────────────┬───────────────┬─────────┘
+                 │               │               │
+                 ▼               ▼               ▼
+        ┌─────────────┐   ┌─────────────┐   ┌─────────────┐
+Bucket0 │   Customer   │   │   Customer   │   │   Customer   │
+        │ email        │   │ email        │   │ email        │
+        │ name         │   │ name         │   │ name         │
+        │ shoesize     │   │ shoesize     │   │ shoesize     │
+        │ food         │   │ food         │   │ food         │
+        │ next  ───────┼──▶│ next  ───────┼──▶│ next = NULL  │
+        └─────────────┘   └─────────────┘   └─────────────┘
+
+(Each bucket holds a linked list of Customer nodes)
