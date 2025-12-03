@@ -1,7 +1,7 @@
 # Hash_table_db
 A simple customer database system using a hash table with linked-list chaining
 
-## What the Program Does
+# What the Program Does
 
 Loads customers from customers.tsv
 
@@ -31,7 +31,7 @@ customer_main.c — command loop + program entry point
 
 customers.tsv — tab-separated customer database
 
-## Key Functions
+# Key Functions
 Hash Table Operations
 
 new_table(size) — create hash table
@@ -58,14 +58,14 @@ prompt_u() — interactive user command loop
 
 r_line() — remove newline from input
 
-## How to Build
+# How to Build
 Using gcc:
 gcc customer_main.c data_customer.c -o businessdb
 
 Or with Makefile:
 make
 
-## How to Run
+# How to Run
 ./businessdb
 
 
@@ -81,22 +81,3 @@ sammy@ucsc.edu	Sammy The Slug	27	bananas
 bimmy@ucsc.edu	bimmy	4	vegan jerky
 
 
-## ASCII Design
- ┌──────────────────────────────────────────────────────────┐
- │                        HashTable                          │
- │----------------------------------------------------------│
- │ size = 100                                                │
- │ buckets = Customer*[] -----------------------------------│
- └───────────────┬───────────────┬───────────────┬─────────┘
-                 │               │               │
-                 ▼               ▼               ▼
-        ┌─────────────┐   ┌─────────────┐   ┌─────────────┐
-Bucket0 │   Customer   │   │   Customer   │   │   Customer   │
-        │ email        │   │ email        │   │ email        │
-        │ name         │   │ name         │   │ name         │
-        │ shoesize     │   │ shoesize     │   │ shoesize     │
-        │ food         │   │ food         │   │ food         │
-        │ next  ───────┼──▶│ next  ───────┼──▶│ next = NULL  │
-        └─────────────┘   └─────────────┘   └─────────────┘
-
-(Each bucket holds a linked list of Customer nodes)
